@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww8060\viewh14280\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 What the hex is that? \
+\
+Premise: \
+- given a hex code and three (easy), six (medium) or nine (hard) boxes, one of which has that colour\
+- try to find the box that matches the hex code\
+- incorrect guess: hide box (poss show that colour\'92s hex code?)\
+- correct guess: all boxes turn that colour, no more clicking on boxes possible\
+- reset button and also after game finished\
+- should be responsive and accessible to keyboard users (can add this functionality after the game is up and running)\
+\
+Breakdown of functionality needed\
+- randomly generate 3/6/9 hex codes, one target and the rest fillers -> present 3/6/9 boxes filled with these colours, and also change HTML to show the target hex code. The position of the target should be randomised (function looping through an array?)\
+- on click on box: \
+	- target clicked: turn all boxes the target colour, display congratulatory message, remove event listener from colour boxes (activate isTarget?)	- filler clicked: hide that box, poss display message with the hex code for that colour\
+- easy/medium/hard levels: button click to change levels and add/remove boxes visible\
+- Reset colours when \'91new colours pressed\'92\
+- could add a score counter after game up and running\
+\
+HTML required\
+- header with name & levels buttons\
+- containers with 3/6/9 boxes\
+- hex code box\
+- new colour buttons\
+\
+CSS required\
+- nice fonts\
+- make boxes look nice\
+- classes needed\
+	- target/filler\
+	- hide\
+	- easy/medium/hard \
+\
+JS required\
+- functions\
+	- generate random hex codes and put in array\
+	- use this array to apply colour to boxes and change HTML of hex code\
+	- target clicked\
+	- filler clicked\
+	- reset\
+- event listeners\
+	- on all boxes\
+	- on easy/medium/hard buttons\
+\
+ }
