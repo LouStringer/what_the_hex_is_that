@@ -15,7 +15,7 @@ function randomColor() {
   return "#" + Math.random().toString(16).slice(2,8);
 }
 
-// create function to generate colours and apply to boxes
+// generate colours, apply to boxes and add relevant classes & event listeners
 function setColors() {
   targetColor = randomColor();
   targetText.classList.remove("hide");
@@ -32,15 +32,12 @@ function setColors() {
       colorBoxes[i].addEventListener("click", fillerClicked);
     } else {
       colorList[i] = targetColor;
-      colorBoxes[i].classList.add("target");
+      colorBoxes[i].classList.add("target"); // not needed if adding event listener directly here - but maybe nice to track target in dev tool
       colorBoxes[i].addEventListener("click", targetClicked);
-    }
+    };
     colorBoxes[i].style.background = colorList[i];
-  }
+  };
 }
-
-// Run the game!
-setColors();
 
 // colour clicks
 function targetClicked() {
@@ -50,15 +47,22 @@ function targetClicked() {
   for (var i = 0; i < colorBoxes.length; i++) {
     colorBoxes[i].classList.remove("hide");
     colorBoxes[i].style.background = targetColor;
+    colorBoxes[i].style.border = "0px";
     colorBoxes[i].removeEventListener("click", targetClicked);
     colorBoxes[i].removeEventListener("click", fillerClicked);
   };
 }
 
 function fillerClicked() {
+  targetText.classList.add("hide");
   nayText.classList.remove("hide");
-  var index = Array.prototype.slice.call(el.parentElement.children).indexOf(el)
-  // nayText.textContent = "nope, that's " + colorList[];
+  for (var i = 0; i < colorBoxes.length; i++) {
+    if (colorBoxes[i] === this) {
+      nayText.textContent = targetColor + "  (that was " + colorList[i] + ")";
+      colorBoxes[i].style.background = "white";
+      colorBoxes[i].style.border = "1px solid" + colorList[i];
+    };
+  };
 }
 
 // change levels
@@ -96,3 +100,6 @@ hardButton.addEventListener("click", function() {
 // New colours reset button
 var resetButton = document.querySelector(".reset");
 resetButton.addEventListener("click", setColors);
+
+// Run the game!
+setColors();
