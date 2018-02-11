@@ -33,3 +33,46 @@ function setColors() {
 
 // Run the game!
 setColors();
+
+// colour clicks
+// event listeners on all Boxes
+// target/not target clicks
+
+// change levels
+// buttons
+var easyButton = document.querySelector("button.easy");
+var mediumButton = document.querySelector("button.medium");
+var hardButton = document.querySelector("button.hard");
+// Boxes
+var easyBoxes = document.querySelector("#easy");
+var mediumBoxes = document.querySelector("#medium");
+var hardBoxes = document.querySelector("#hard");
+// event listeners
+easyButton.addEventListener("click", function() {
+  easyBoxes.classList.remove("hide");
+  mediumBoxes.classList.add("hide");
+  hardBoxes.classList.add("hide");
+  noOfBoxes = 3;
+  colorBoxes = document.querySelectorAll("#easy .color");
+  setColors();
+})
+mediumButton.addEventListener("click", function() {
+  easyBoxes.classList.add("hide");
+  mediumBoxes.classList.remove("hide");
+  hardBoxes.classList.add("hide");
+  noOfBoxes = 6;
+  colorBoxes = document.querySelectorAll("#medium .color");
+  setColors();
+})
+hardButton.addEventListener("click", function() {
+  easyBoxes.classList.add("hide");
+  mediumBoxes.classList.add("hide");
+  hardBoxes.classList.remove("hide");
+  noOfBoxes = 9;
+  colorBoxes = document.querySelectorAll("#hard .color");
+  setColors();
+})
+
+// get new colours button working
+var resetButton = document.querySelector(".reset");
+resetButton.addEventListener("click", setColors);
