@@ -14,39 +14,24 @@ A hex code guessing game -->
   <!-- top section -->
   <header>
     <h1>what the hex is that?</h1>
-    <button class="easy">easy</button>
-    <button class="medium">medium</button>
-    <button class="hard">hard</button>
+    <button class="level">easy</button>
+    <button class="level">medium</button>
+    <button class="level">hard</button>
   </header>
   <main>
   <!-- Text to display codes -->
-    <p class="target">#292929</p>
-    <p class="yay hide">yay, that's #292929</p>
-    <p class="nay hide">#292929 (that was #000000)</p>
-  <!-- the three options: easy, medium & hard -->
-    <div class="boxes hide" id="easy">
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
-    </div>
-    <div class="boxes" id="medium">
+    <p class="text">#000000</p>
+  <!-- boxes to change colour  - for default medium level-->
+    <div class="boxes" id="hard">
       <div class="color"></div>
       <div class="color"></div>
       <div class="color"></div>
       <div class="color"></div>
       <div class="color"></div>
       <div class="color"></div>
-    </div>
-    <div class="boxes hide" id="hard">
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
-      <div class="color"></div>
+      <div class="color hide"></div>
+      <div class="color hide"></div>
+      <div class="color hide"></div>
     </div>
     <button class="reset">new colours</button>
   </main>

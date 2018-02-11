@@ -67,6 +67,7 @@ p {
   margin: 10px 0;
   text-align: center;
   font-size: 2.25em;
+  letter-spacing: 0.1em;
 }
 
 /* Boxes */
@@ -85,9 +86,6 @@ p {
 }
 
 /* Classes to toggle */
-.target {
-}
-
 .hide {
   display: none;
 }
