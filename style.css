@@ -24,7 +24,6 @@ A hex code guessing game */
 * {
 	box-sizing: border-box;
 	margin: 0;
-  /* border: 1px solid black; */
   font-family: 'Sue Ellen Francisco', 'Raleway', serif;
 	font-weight: 400;
   color: #404040;
@@ -57,20 +56,20 @@ header button {
   margin: 0 5px 0 0;
 }
 
-/* align the main */
+/* main section positioning */
 main {
   max-width: 500px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
-p.target {
+p.target, p.yay {
   margin: 10px 0;
   text-align: center;
   font-size: 2.5em;
 }
 
-p.yay, p.nay {
+p.nay {
   margin: 5px 0;
   text-align: center;
   font-size: 1.5em;
@@ -91,6 +90,10 @@ p.yay, p.nay {
   margin: 10px;
   border: 1px solid hsla(0, 0%, 85%, 1.0);
   border-radius: 5em;
+}
+
+/* Target */
+.target {
 }
 
 /* Levels */
