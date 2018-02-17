@@ -8,6 +8,7 @@ A hex code guessing game -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css" type="text/css">
+  <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
   <title>what the hex is that?</title>
 </head>
 <body>
@@ -23,7 +24,7 @@ A hex code guessing game -->
   <!-- Text to display codes -->
     <h2 class="text">#000000</h2>
   <!-- boxes to change colour  - for default medium level-->
-    <div class="boxes">
+    <div class="boxes" id="colorBoxes">
       <div tabindex="1" class="color notClicked"></div>
       <div tabindex="2" class="color notClicked"></div>
       <div tabindex="3" class="color notClicked"></div>
@@ -64,6 +65,9 @@ A hex code guessing game -->
       <div class="colorDemo lime">#ddf593</div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <!-- vanilla JS -->
+  <!-- <script src="script.js"></script> -->
+  <!-- jQuery -->
+  <script src="script_jq.js"></script>
 </body>
 </html>
