@@ -29,6 +29,12 @@ A hex code guessing game */
   color: #404040;
   }
 
+*:focus {
+  border: 1.5px solid #e7e7e7;
+  border-radius: 0.5em;
+  outline: 0;
+}
+
 /* Get header sorted */
 header {
   display: flex;
@@ -47,13 +53,19 @@ h1 {
   text-align: center;
 }
 
-header button {
+button {
   width: 70px;
   height: 50px;
   font-size: 1.5em;
-  background: white;
+  background: #FFF;
   border: 0px;
   margin: 0 5px 0 0;
+  transition: 0.2s;
+}
+
+button:hover {
+  border: 1.5px solid #e7e7e7;
+  border-radius: 0.5em;
 }
 
 /* main section display */
@@ -83,6 +95,15 @@ p {
   width: 110px;
   margin: 10px;
   border-radius: 5em;
+  transition: 0.3s;
+}
+
+.color:focus {
+  border: 2px solid #404040;
+}
+
+.color:hover {
+  border: 2px solid #fff;
 }
 
 /* Classes to toggle */
@@ -96,7 +117,5 @@ button.reset {
   height: 50px;
   display: block;
   margin: 30px auto 10px auto;
-  border: 1.5px solid #e7e7e7;
-  border-radius: 0.5em;
   font-size: 1.5em;
 }

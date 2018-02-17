@@ -29,7 +29,7 @@ function setColors() {
       colorBoxes[i].addEventListener("click", targetClicked);
     };
     colorBoxes[i].style.background = colorList[i];
-    colorBoxes[i].style.border = "0px";
+    colorBoxes[i].style.border = "2px solid colorList[i]";
   };
 }
 
