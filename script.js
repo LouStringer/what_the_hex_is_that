@@ -7,7 +7,7 @@ var targetPosition = "";
 var numOfBoxes = 6; // for default medium level
 var colorList = [];
 var colorBoxes = document.querySelectorAll(".color");
-var text = document.querySelector("p.text");
+var text = document.querySelector("h2.text");
 
 // generate random hexcode colour
 function randomColor() {
@@ -115,6 +115,13 @@ for (var i = 0; i < levelButtons.length; i++) {
 
 // New colours reset button
 document.querySelector(".reset").addEventListener("click", setColors);
+
+// show/hide instructions
+document.querySelector("button.instructions").addEventListener("click", function () {
+  document.querySelector("div.instructions").classList.toggle("hide");
+  document.querySelector("main").classList.toggle("hide");
+  setColors();
+});
 
 // Run the game!
 setColors();

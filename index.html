@@ -17,10 +17,11 @@ A hex code guessing game -->
     <button class="level">easy</button>
     <button class="level">medium</button>
     <button class="level">hard</button>
+    <button class="instructions">?</button>
   </header>
   <main>
   <!-- Text to display codes -->
-    <p class="text">#000000</p>
+    <h2 class="text">#000000</h2>
   <!-- boxes to change colour  - for default medium level-->
     <div class="boxes">
       <div tabindex="1" class="color notClicked"></div>
@@ -35,6 +36,34 @@ A hex code guessing game -->
     </div>
     <button class="reset">new colours</button>
   </main>
+  <div class="instructions hide">
+    <h2>what's going on here?</h2>
+    <p>
+      pick the colour that matches the hex code
+    </p>
+    <p>
+      after the #, a hex code shows how much RED (first two values), GREEN
+      (second two values)<br /> and BLUE (final two values) that a
+      colour contains
+    </p>
+    <div class="boxes">
+      <div class="colorDemo red">#ff0000</div>
+      <div class="colorDemo green">#00ff00</div>
+      <div class="colorDemo blue">#0000ff</div>
+    </div>
+    <p>
+      the possible values are 0 to f -
+      the closer to f, the more of that colour
+    </p>
+    <p>
+      the three values combine to form other less horrifying colours
+    </p>
+    <div class="boxes">
+      <div class="colorDemo purple">#a278cf</div>
+      <div class="colorDemo teal">#15b1d9</div>
+      <div class="colorDemo lime">#ddf593</div>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

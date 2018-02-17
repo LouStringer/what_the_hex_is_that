@@ -73,12 +73,12 @@ button:hover {
 
 /* main section display */
 main {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
-p {
+h2 {
   margin: 10px 0;
   text-align: center;
   font-size: 2.25em;
@@ -87,6 +87,8 @@ p {
 
 /* Boxes */
 .boxes {
+  max-width: 500px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -109,7 +111,6 @@ p {
   border: 2px solid #fff;
 }
 
-/* Classes to toggle */
 .hide {
   display: none;
 }
@@ -121,4 +122,53 @@ button.reset {
   display: block;
   margin: 30px auto 10px auto;
   font-size: 1.5em;
+}
+
+/* instructions */
+div.instructions {
+  max-height: 0;
+  transition: 0.7s;
+}
+
+p {
+  margin: 5px 0;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.colorDemo {
+  height: 110px;
+  width: 110px;
+  margin: 10px;
+  border-radius: 5em;
+  text-align: center;
+  line-height: 110px;
+  font-size: 1.5em;
+}
+
+.red {
+  background: #ff0000;
+  color: #e7e7e7;
+}
+
+.green {
+  background: #00ff00;
+}
+
+.blue {
+  background: #0000ff;
+  color: #e7e7e7;
+}
+
+.purple {
+  background: #a278cf;
+}
+
+.teal {
+  background: #15b1d9;
+  color: #e7e7e7;
+}
+
+.lime {
+  background: #ddf593;
 }
