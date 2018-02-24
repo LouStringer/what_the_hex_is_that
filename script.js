@@ -23,8 +23,8 @@ function setColors() {
   targetPosition = Math.floor(Math.random()*(numOfBoxes));
   targetColor = colorList[targetPosition];
   text.textContent = targetColor;
+  colorBoxes[targetPosition].classList.add("target");
   for (var i = 0; i < numOfBoxes; i++) {
-    if (i!=targetPosition) {
       colorBoxes[i].addEventListener("click", fillerClicked);
       colorBoxes[i].addEventListener("keypress", fillerTabbed);
     } else {
