@@ -102,12 +102,8 @@ h2 {
   transition: 0.3s;
 }
 
-.notClicked:focus {
-  border: 4px solid #e7e7e7;
-}
-
-.notClicked:hover {
-  border: 2px solid #fff;
+.notClicked:focus, .notClicked:hover {
+  border: 4px solid #404040;
 }
 
 .filler {

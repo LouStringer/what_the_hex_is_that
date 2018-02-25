@@ -56,17 +56,7 @@ function targetClicked() {
 
 function targetTabbed(event) {
   if (event.keyCode === 13) {
-    for (var i = 0; i < numOfBoxes; i++) {
-      text.textContent = "yay, that's " + targetColor;
-      colorBoxes[i].style.background = targetColor;
-      colorBoxes[i].style.opacity = 1;
-      colorBoxes[i].classList.remove("notClicked");
-      colorBoxes[i].setAttribute("tabindex", "-1");
-      colorBoxes[i].removeEventListener("click", targetClicked);
-      colorBoxes[i].removeEventListener("click", fillerClicked);
-      colorBoxes[i].removeEventListener("keypress", targetTabbed);
-      colorBoxes[i].removeEventListener("keypress", fillerTabbed);
-    };
+    targetClicked();
   };
 }
 
@@ -83,14 +73,7 @@ function fillerClicked() {
 
 function fillerTabbed(event) {
   if (event.keyCode === 13) {
-    for (var i = 0; i < numOfBoxes; i++) {
-      if (colorBoxes[i] === this) {
-        text.textContent = targetColor + "  (that was " + colorList[i] + ")";
-        colorBoxes[i].style.opacity = 0.15;
-        colorBoxes[i].classList.remove("notClicked");
-        colorBoxes[i].setAttribute("tabindex", "-1");
-      };
-    };
+    fillerClicked();
   };
 }
 
