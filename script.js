@@ -2,6 +2,7 @@
 // A hex code guessing game
 
 const hexGame = (() => {
+  // ----- SET UP
   // create variables/select objects required
   let targetColor = "";
   let targetPosition = "";
@@ -38,15 +39,14 @@ const hexGame = (() => {
     colorCircles[targetPosition].classList.add("target");
   }
 
-  function prepBoxes() {
-    for (var i = 0; i < numOfColors; i++) {
-      colorCircles[i].addEventListener("click", colorClicked);
-      colorCircles[i].addEventListener("keypress", colorTabbed);
-      colorCircles[i].style.background = colorList[i];
-      colorCircles[i].style.opacity = 1;
-      colorCircles[i].classList.add("notClicked");
-      colorCircles[i].setAttribute("tabindex", i+1);
-      };
+  const prepBoxes = () => {
+    colorCircles.forEach(item => {
+      item.addEventListener("click", selected);
+      item.style.background = colorList[colorCircles.indexOf(item)];
+      item.style.opacity = 1;
+      item.classList.add("notClicked");
+      item.setAttribute("tabindex", i+1);
+    });
   }
 
   function setColors() {
@@ -56,33 +56,24 @@ const hexGame = (() => {
     prepBoxes();
   }
 
-  // colour click/tab functions
-  function removeEventLists(box) {
-    box.removeEventListener("click", colorClicked);
-    box.removeEventListener("keypress", colorTabbed);
-    box.setAttribute("tabindex", "-1");
-    box.classList.remove("notClicked", "target");
+  // ----- PLAY!
+  const removeEventLists = item => {
+    item.removeEventListener("click", selected);
+    item.classList.remove("notClicked", "target");
   }
 
-  function colorClicked() {
-    const i = colorCircles.indexOf(this)
-    if (i === targetPosition) {
+  const selected = (event) => {
+    if (colorCircles.indexOf(event.currentTarget) === targetPosition) {
       text.textContent = "yay, that's " + targetColor;
-      for (box of colorCircles) {
-        box.style.background = targetColor;
-        box.style.opacity = 1;
-        removeEventLists(box);
-      };
+      colorCircles.forEach(item => {
+        item.style.background = targetColor;
+        item.style.opacity = 1;
+        removeEventLists(item);
+      });
     } else {
-      text.textContent = targetColor + "  (that was " + colorList[i] + ")";
-      colorCircles[i].style.opacity = 0.15;
-      removeEventLists(colorCircles[i]);
-    };
-  }
-
-  function colorTabbed(event) {
-    if (event.keyCode === 13) {
-      colorClicked.call(this);
+      text.textContent = `${targetColor} (that was ${colorList[colorCircles.indexOf(event.currentTarget)]})`;
+      event.currentTarget.style.opacity = 0.15;
+      removeEventLists(event.currentTarget);
     };
   }
 
