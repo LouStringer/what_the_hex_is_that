@@ -5,36 +5,41 @@ const hexGame = (() => {
   // create variables/select objects required
   let targetColor = "";
   let targetPosition = "";
-  let numOfBoxes = 6; // for default medium level
+  let numOfColors = 6; // for default medium level
+  let colorCircles = [];
   let colorList = [];
 
   // Grab DOM objects
   const main = document.querySelector("main");
   const text = document.querySelector("h2.text");
-  const colorCircles = Array.from(document.querySelectorAll(".color"));
+  const colorSection = document.querySelector("section.colorCircles")
   const levelButtons = document.querySelectorAll("button.level");
   const resetButton = document.querySelector(".reset");
-  const instructionsDiv = document.querySelector("div.instructions");
+  const instructionsSection = document.querySelector("section.instructions");
   const instructionsButton = document.querySelector("button.instructions");
 
+  const createColourCircles = numOfColors => {
+    colorSection.innerHTML = `<button class="color"></button>`.repeat(numOfColors);
+    colorCircles = Array.from(document.querySelectorAll(".color"));
+  }
+
   // generate random hexcode colour
-  function randomColor() {
-    for (var i = 0; i < numOfBoxes; i++) {
-      colorList[i] = "#" + Math.random().toString(16).slice(2,8);
+  const randomColor = () => {
+    for (let i = 0; i < numOfColors; i++) {
+      colorList[i] = `#${Math.random().toString(16).slice(2,8)}`;
     };
   }
 
-  // generate colours, apply to boxes and add relevant
-  // classes, attributes & event listeners
-  function setTarget() {
-    targetPosition = Math.floor(Math.random()*(numOfBoxes));
+  // generate colours, apply to boxes and add relevant classes, attributes & event listeners
+  const setTarget = () => {
+    targetPosition = Math.floor(Math.random()*(numOfColors));
     targetColor = colorList[targetPosition];
     text.textContent = targetColor;
     colorCircles[targetPosition].classList.add("target");
   }
 
   function prepBoxes() {
-    for (var i = 0; i < numOfBoxes; i++) {
+    for (var i = 0; i < numOfColors; i++) {
       colorCircles[i].addEventListener("click", colorClicked);
       colorCircles[i].addEventListener("keypress", colorTabbed);
       colorCircles[i].style.background = colorList[i];
@@ -45,6 +50,7 @@ const hexGame = (() => {
   }
 
   function setColors() {
+    createColourCircles(numOfColors);
     randomColor();
     setTarget();
     prepBoxes();
@@ -83,14 +89,14 @@ const hexGame = (() => {
   // change levels
   function changeLevel() {
     if (this.textContent === "easy") {
-      numOfBoxes = 3;
+      numOfColors = 3;
     } else if (this.textContent === "medium") {
-      numOfBoxes = 6;
+      numOfColors = 6;
     } else {
-      numOfBoxes = 9;
+      numOfColors = 9;
     };
     for (var i = 0; i < colorCircles.length; i++) {
-      i < numOfBoxes ? colorCircles[i].classList.remove("hide") : colorCircles[i].classList.add("hide");
+      i < numOfColors ? colorCircles[i].classList.remove("hide") : colorCircles[i].classList.add("hide");
     };
     setColors();
   }

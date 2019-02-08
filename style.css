@@ -84,8 +84,8 @@ h2 {
   letter-spacing: 0.1em;
 }
 
-/* Boxes */
-.boxes {
+/* Colour circles */
+.colorCircles {
   max-width: 500px;
   margin: 0 auto;
   display: flex;
