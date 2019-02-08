@@ -3,19 +3,19 @@
 
 const hexGame = (() => {
   // create variables/select objects required
-  var targetColor = "";
-  var targetPosition = "";
-  var numOfBoxes = 6; // for default medium level
-  var colorList = [];
+  let targetColor = "";
+  let targetPosition = "";
+  let numOfBoxes = 6; // for default medium level
+  let colorList = [];
 
   // Grab DOM objects
-  let main = document.querySelector("main");
-  let text = document.querySelector("h2.text");
-  let colorBoxes = Array.from(document.querySelectorAll(".color"));
-  let levelButtons = document.querySelectorAll("button.level");
-  let resetButton = document.querySelector(".reset");
-  let instructionsDiv = document.querySelector("div.instructions");
-  let instructionsButton = document.querySelector("button.instructions");
+  const main = document.querySelector("main");
+  const text = document.querySelector("h2.text");
+  const colorCircles = Array.from(document.querySelectorAll(".color"));
+  const levelButtons = document.querySelectorAll("button.level");
+  const resetButton = document.querySelector(".reset");
+  const instructionsDiv = document.querySelector("div.instructions");
+  const instructionsButton = document.querySelector("button.instructions");
 
   // generate random hexcode colour
   function randomColor() {
@@ -30,17 +30,17 @@ const hexGame = (() => {
     targetPosition = Math.floor(Math.random()*(numOfBoxes));
     targetColor = colorList[targetPosition];
     text.textContent = targetColor;
-    colorBoxes[targetPosition].classList.add("target");
+    colorCircles[targetPosition].classList.add("target");
   }
 
   function prepBoxes() {
     for (var i = 0; i < numOfBoxes; i++) {
-      colorBoxes[i].addEventListener("click", colorClicked);
-      colorBoxes[i].addEventListener("keypress", colorTabbed);
-      colorBoxes[i].style.background = colorList[i];
-      colorBoxes[i].style.opacity = 1;
-      colorBoxes[i].classList.add("notClicked");
-      colorBoxes[i].setAttribute("tabindex", i+1);
+      colorCircles[i].addEventListener("click", colorClicked);
+      colorCircles[i].addEventListener("keypress", colorTabbed);
+      colorCircles[i].style.background = colorList[i];
+      colorCircles[i].style.opacity = 1;
+      colorCircles[i].classList.add("notClicked");
+      colorCircles[i].setAttribute("tabindex", i+1);
       };
   }
 
@@ -59,18 +59,18 @@ const hexGame = (() => {
   }
 
   function colorClicked() {
-    const i = colorBoxes.indexOf(this)
+    const i = colorCircles.indexOf(this)
     if (i === targetPosition) {
       text.textContent = "yay, that's " + targetColor;
-      for (box of colorBoxes) {
+      for (box of colorCircles) {
         box.style.background = targetColor;
         box.style.opacity = 1;
         removeEventLists(box);
       };
     } else {
       text.textContent = targetColor + "  (that was " + colorList[i] + ")";
-      colorBoxes[i].style.opacity = 0.15;
-      removeEventLists(colorBoxes[i]);
+      colorCircles[i].style.opacity = 0.15;
+      removeEventLists(colorCircles[i]);
     };
   }
 
@@ -89,8 +89,8 @@ const hexGame = (() => {
     } else {
       numOfBoxes = 9;
     };
-    for (var i = 0; i < colorBoxes.length; i++) {
-      i < numOfBoxes ? colorBoxes[i].classList.remove("hide") : colorBoxes[i].classList.add("hide");
+    for (var i = 0; i < colorCircles.length; i++) {
+      i < numOfBoxes ? colorCircles[i].classList.remove("hide") : colorCircles[i].classList.add("hide");
     };
     setColors();
   }
