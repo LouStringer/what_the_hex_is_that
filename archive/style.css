@@ -1,0 +1,177 @@
+/* What the hex is that?
+A hex code guessing game */
+
+/* Web fonts used
+***********/
+@font-face {
+  font-family: 'Sue Ellen Francisco';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sue Ellen Francisco '), local('SueEllenFrancisco'), url(https://fonts.gstatic.com/s/sueellenfrancisco/v8/wXK3E20CsoJ9j1DDkjHcQ5ZL8xRaxru9no1P23in5H8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Reset global default settings
+***********/
+* {
+	box-sizing: border-box;
+	margin: 0;
+  font-family: 'Sue Ellen Francisco', 'Open Sans', serif;
+	font-weight: 400;
+  color: #404040;
+  }
+
+*:focus {
+  outline: 0;
+}
+
+/* Get header sorted */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 15px 20px;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 10px;
+}
+
+h1 {
+  margin: 0 auto 0 0;
+  padding-right: 5px;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+button {
+  width: 70px;
+  height: 50px;
+  font-size: 1.5em;
+  background: #FFF;
+  border: 0px;
+  margin: 0 5px 0 0;
+  transition: 0.1s;
+}
+
+button:focus {
+  border: 1.5px solid #e7e7e7;
+  border-radius: 0.5em;
+}
+
+button:hover {
+  border: 1.5px solid #e7e7e7;
+  border-radius: 0.5em;
+}
+
+/* main section display */
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+h2 {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 2.25em;
+  letter-spacing: 0.1em;
+}
+
+/* Boxes */
+.boxes {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.color {
+  height: 110px;
+  width: 110px;
+  margin: 10px;
+  border-radius: 5em;
+  transition: 0.3s;
+}
+
+.notClicked:focus, .notClicked:hover {
+  border: 4px solid #404040;
+}
+
+.filler {
+
+}
+
+.target {
+
+}
+
+.hide {
+  display: none;
+}
+
+/* Reset button */
+button.reset {
+  width: 100px;
+  height: 50px;
+  display: block;
+  margin: 30px auto 10px auto;
+  font-size: 1.5em;
+}
+
+/* instructions */
+div.instructions {
+  max-height: 0;
+  transition: 0.7s;
+}
+
+p {
+  margin: 5px 0;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.colorDemo {
+  height: 110px;
+  width: 110px;
+  margin: 10px;
+  border-radius: 5em;
+  text-align: center;
+  line-height: 110px;
+  font-size: 1.5em;
+}
+
+.red {
+  background: #ff0000;
+  color: #e7e7e7;
+}
+
+.green {
+  background: #00ff00;
+}
+
+.blue {
+  background: #0000ff;
+  color: #e7e7e7;
+}
+
+.purple {
+  background: #a278cf;
+}
+
+.teal {
+  background: #15b1d9;
+  color: #e7e7e7;
+}
+
+.lime {
+  background: #ddf593;
+}

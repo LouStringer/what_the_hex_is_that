@@ -1,0 +1,73 @@
+<!-- What the hex is that?
+A hex code guessing game -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <!-- <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script> -->
+  <title>what the hex is that?</title>
+</head>
+<body>
+  <!-- top section -->
+  <header>
+    <h1>what the hex is that?</h1>
+    <button class="level">easy</button>
+    <button class="level">medium</button>
+    <button class="level">hard</button>
+    <button class="instructions">?</button>
+  </header>
+  <main>
+  <!-- Text to display codes -->
+    <h2 class="text">#000000</h2>
+  <!-- boxes to change colour  - for default medium level-->
+    <div class="boxes" id="colorBoxes">
+      <div tabindex="1" class="color"></div>
+      <div tabindex="2" class="color"></div>
+      <div tabindex="3" class="color"></div>
+      <div tabindex="4" class="color"></div>
+      <div tabindex="5" class="color"></div>
+      <div tabindex="6" class="color"></div>
+      <div tabindex="7" class="color hide"></div>
+      <div tabindex="8" class="color hide"></div>
+      <div tabindex="9" class="color hide"></div>
+    </div>
+    <button class="reset">new colours</button>
+  </main>
+  <div class="instructions hide">
+    <h2>what's going on here?</h2>
+    <p>
+      pick the colour that matches the hex code
+    </p>
+    <p>
+      after the #, a hex code shows how much RED (first two values), GREEN
+      (second two values)<br /> and BLUE (final two values) that a
+      colour contains
+    </p>
+    <div class="boxes">
+      <div class="colorDemo red">#ff0000</div>
+      <div class="colorDemo green">#00ff00</div>
+      <div class="colorDemo blue">#0000ff</div>
+    </div>
+    <p>
+      the possible values are 0 to f -
+      the closer to f, the more of that colour
+    </p>
+    <p>
+      the three values combine to form other less horrifying colours
+    </p>
+    <div class="boxes">
+      <div class="colorDemo purple">#a278cf</div>
+      <div class="colorDemo teal">#15b1d9</div>
+      <div class="colorDemo lime">#ddf593</div>
+    </div>
+  </div>
+  <!-- vanilla JS -->
+  <script src="script.js"></script>
+  <!-- jQuery -->
+  <!-- <script src="script_jq.js"></script> -->
+</body>
+</html>
