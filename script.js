@@ -45,7 +45,6 @@ const hexGame = (() => {
       item.style.background = colorList[colorCircles.indexOf(item)];
       item.style.opacity = 1;
       item.classList.add("notClicked");
-      item.setAttribute("tabindex", i+1);
     });
   }
 
@@ -78,23 +77,18 @@ const hexGame = (() => {
   }
 
   // change levels
-  function changeLevel() {
-    if (this.textContent === "easy") {
+  const changeLevel = () => {
+    if (event.currentTarget.textContent === "easy") {
       numOfColors = 3;
-    } else if (this.textContent === "medium") {
+    } else if (event.currentTarget.textContent === "medium") {
       numOfColors = 6;
     } else {
       numOfColors = 9;
     };
-    for (var i = 0; i < colorCircles.length; i++) {
-      i < numOfColors ? colorCircles[i].classList.remove("hide") : colorCircles[i].classList.add("hide");
-    };
     setColors();
   }
 
-  for (var i = 0; i < levelButtons.length; i++) {
-    levelButtons[i].addEventListener("click", changeLevel);
-  };
+  levelButtons.forEach(item => item.addEventListener("click", changeLevel))
 
   // new colours reset button
   resetButton.addEventListener("click", setColors);
