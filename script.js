@@ -36,7 +36,6 @@ const hexGame = (() => {
     targetPosition = Math.floor(Math.random()*(numOfColors));
     targetColor = colorList[targetPosition];
     text.textContent = targetColor;
-    colorCircles[targetPosition].classList.add("target");
   }
 
   const prepBoxes = () => {
@@ -58,7 +57,7 @@ const hexGame = (() => {
   // ----- PLAY!
   const removeEventLists = item => {
     item.removeEventListener("click", selected);
-    item.classList.remove("notClicked", "target");
+    item.classList.remove("notClicked");
   }
 
   const selected = (event) => {
@@ -98,7 +97,6 @@ const hexGame = (() => {
   // return function to initialise game
   return {setColors};
 })();
-
 
 // Run the game!
 hexGame.setColors();

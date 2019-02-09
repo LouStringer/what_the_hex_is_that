@@ -94,24 +94,16 @@ h2 {
   list-style-type: none;
 }
 
-.color {
+.color, .color:focus, .color:hover {
   height: 110px;
   width: 110px;
   margin: 10px;
   border-radius: 5em;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 .notClicked:focus, .notClicked:hover {
   border: 4px solid #404040;
-}
-
-.filler {
-
-}
-
-.target {
-
 }
 
 .hide {
