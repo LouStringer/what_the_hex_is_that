@@ -24,14 +24,12 @@ const hexGame = (() => {
     colorCircles = Array.from(document.querySelectorAll(".color"));
   }
 
-  // generate random hexcode colour
   const randomColor = () => {
     for (let i = 0; i < numOfColors; i++) {
       colorList[i] = `#${Math.random().toString(16).slice(2,8)}`;
     };
   }
 
-  // generate colours, apply to boxes and add relevant classes, attributes & event listeners
   const setTarget = () => {
     targetPosition = Math.floor(Math.random()*(numOfColors));
     targetColor = colorList[targetPosition];
@@ -81,7 +79,7 @@ const hexGame = (() => {
     setColors();
   }
 
-  levelButtons.forEach(item => item.addEventListener("click", changeLevel))
+  levelButtons.forEach(item => item.addEventListener("click", changeLevel));
 
   // new colours reset button
   resetButton.addEventListener("click", setColors);
