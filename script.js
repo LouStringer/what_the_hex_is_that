@@ -48,7 +48,7 @@ const hexGame = (() => {
     });
   }
 
-  function setColors() {
+  const setColors = () => {
     createColourCircles(numOfColors);
     randomColor();
     setTarget();
@@ -78,13 +78,7 @@ const hexGame = (() => {
 
   // change levels
   const changeLevel = () => {
-    if (event.currentTarget.textContent === "easy") {
-      numOfColors = 3;
-    } else if (event.currentTarget.textContent === "medium") {
-      numOfColors = 6;
-    } else {
-      numOfColors = 9;
-    };
+    numOfColors = event.currentTarget.dataset.colors;
     setColors();
   }
 
@@ -94,17 +88,15 @@ const hexGame = (() => {
   resetButton.addEventListener("click", setColors);
 
   // show/hide instructions
-  function instructions() {
-    instructionsDiv.classList.toggle("hide");
+  const instructions = () => {
+    instructionsSection.classList.toggle("hide");
     main.classList.toggle("hide");
     setColors();
   }
   instructionsButton.addEventListener("click", instructions)
 
   // return function to initialise game
-  return {
-    setColors
-  }
+  return {setColors};
 })();
 
 
